@@ -25,7 +25,9 @@ The project leverages Python with popular libraries like pandas, numpy, scikit-l
 ## **Introduction**
 
 This repository provides a comprehensive framework for building and optimizing regression models, particularly focusing on handling diverse feature types including numerical, categorical, and textual data. The core idea is to transform the input data into a rich feature space and then employ advanced hyperparameter optimization techniques to find the best-performing models, ultimately combining them using a stacking ensemble.
+The input information of the model is the parameters of construction projects, along with the history of changes (described in natural language). From there, the models perform analysis and predict the actual costs of these projects. Detailed descriptions of the inputs and outputs are presented in Table 1.
 
+Table 1. Input/Output Formats for Project Cost Prediction Model
 ## **Features**
 Category	Feature Name	Data Type (Before Preprocessing)	Data Type (After Preprocessing for Model Input)	Description	Example Value (Original)	Example Value (Processed)
 Numerical Features (Input)	Main-contractors experience	Integer (Years)	Float (Scaled/Normalized)	Years of experience of the main contractor.	15	0.75 (after scaling)
