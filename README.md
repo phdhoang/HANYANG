@@ -27,8 +27,31 @@ The project leverages Python with popular libraries like pandas, numpy, scikit-l
 This repository provides a comprehensive framework for building and optimizing regression models, particularly focusing on handling diverse feature types including numerical, categorical, and textual data. The core idea is to transform the input data into a rich feature space and then employ advanced hyperparameter optimization techniques to find the best-performing models, ultimately combining them using a stacking ensemble.
 
 ## **Features**
+Category	Feature Name	Data Type (Before Preprocessing)	Data Type (After Preprocessing for Model Input)	Description	Example Value (Original)	Example Value (Processed)
+Numerical Features (Input)	Main-contractors experience	Integer (Years)	Float (Scaled/Normalized)	Years of experience of the main contractor.	15	0.75 (after scaling)
+	Number of contractors	Integer	Float (Scaled/Normalized)	Total number of contractors involved.	3	0.3 (after scaling)
+	Number of Contract changes	Integer	Float (Scaled/Normalized)	Count of formal changes made to the contract.	2	0.2 (after scaling)
+	Number of Design changes	Integer	Float (Scaled/Normalized)	Count of revisions made to the project design.	5	0.5 (after scaling)
+	Number of Price linkage	Integer	Float (Scaled/Normalized)	Frequency of price adjustments linked to external factors.	1	0.1 (after scaling)
+	Start date	Date	Numerical	Date the project officially commenced.	1/15/2013	748950 (days since epoch)
+	Announcement Date	Date	Numerical	Date the project was publicly announced.	11/1/2012	748880 (days since epoch)
+	Completion Date	Date	Numerical	Date the project was completed.	3/20/2014	749370 (days since epoch)
+	Design amount USD	Float (USD)	Float (Scaled/Normalized)	Targeted design costs ($)	 $1,990,000 	0.15 (after scaling)
+	Estimated amount USD	Float (USD)	Float (Scaled/Normalized)	Estimated cost according to tendering packs ($)	 $2,010,000 	0.8 (after scaling)
+	Initial amount USD	Float (USD)	Float (Scaled/Normalized)	Initial amount of selected bid package ($)	 $1,950,000 	0.78 (after scaling)
+Categorical Features (Input)	Location	String/Categorical	One-Hot Encoded Vector	Geographic location of the project.	Seoul	[0, 1, 0, ...] (for Seoul)
+	Bidding methods	String/Categorical	One-Hot Encoded Vector	Method used for contractor bidding.	Lowest price	[1, 0, 0, ...] (for Open)
+	Category	String/Categorical	One-Hot Encoded Vector	General classification of the project.	Residential for sale	[0, 0, 1, ...] (for Residential)
+	Work type	String/Categorical	One-Hot Encoded Vector	Main work type of the general contractors.	Construction	[0, 1, 0, ...] (for New Build)
+	General Contractor	String/Categorical	One-Hot Encoded Vector	Identifier for the general contractor.	A Inc. 	[1, 0, 0, ...] (for GC_A)
+Text Features (Input)	Additional Description	Text	BERT Embeddings	Unstructured text providing descriptions, notes on design changes, delays or other issues	On july 2012, because of the design change, C18 beams are resized...	torch.Tensor([...]) (BERT embedding vector)
+Output	Project actual cost	Float (USD)	Float (Raw)	The true, final cost of the project (target variable).	2,150,000.00	2,150,000.0 (raw) or 0.85 (if scaled)
 
-* **Data Loading:** Reads data from an Excel file (.xlsx).  
+![image](https://github.com/user-attachments/assets/e9cc1711-4db3-40d6-932a-2ae4492001c0)
+
+* **Data Loading:**
+* 
+* Reads data from an Excel file (.xlsx).  
 * **Feature Engineering:**  
   * **PCA (Principal Component Analysis):** For dimensionality reduction on numerical features (PC1 to PC6).  
   * **One-Hot Encoding:** For categorical features (C1 to C5).  
