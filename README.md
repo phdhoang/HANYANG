@@ -4,24 +4,6 @@ This project demonstrates the application of BERT-based sentence embeddings, PCA
 
 The project leverages Python with popular libraries like pandas, numpy, scikit-learn, tensorflow, optuna, sentence-transformers, and scipy.sparse.
 
-## **Table of Contents**
-
-* [Introduction](#bookmark=id.qp7iu71n942d)  
-* [Features](#bookmark=id.6ky1lhf1mtyo)  
-* [Installation](#bookmark=id.31xdh0sgs7zn)  
-* [Usage](#bookmark=id.xofe0phhbpxd)  
-* [Data](#bookmark=id.aovq5o7b200m)  
-* [Methodology](#bookmark=id.uz6offafwz5u)  
-  * [Feature Engineering](#bookmark=id.fm5v9iy2t0nv)  
-  * [Bayesian Optimization (Optuna)](#bookmark=id.8aoqclms4ou9)  
-  * [Stacking Ensemble](#bookmark=id.jib5jfpym6aj)  
-* [Models Used](#bookmark=id.9cgt7fplp5t2)  
-* [Results](#bookmark=id.gjnaehmjwrkr)  
-* [Visualizations](#bookmark=id.b94pn23r3zkv)  
-* [Contributing](#bookmark=id.9728ah5j5fgq)  
-* [License](#bookmark=id.tbc1x6n59bzz)  
-* [Acknowledgements](#bookmark=id.pybl0hil7e5l)
-
 ## **Introduction**
 
 This repository provides a comprehensive framework for building and optimizing regression models, particularly focusing on handling diverse feature types including numerical, categorical, and textual data. The core idea is to transform the input data into a rich feature space and then employ advanced hyperparameter optimization techniques to find the best-performing models, ultimately combining them using a stacking ensemble.
@@ -218,6 +200,7 @@ Scatter plots are generated to visualize the "Actual vs. Predicted" values for e
 ## **Contributing**
 
 Feel free to fork this repository, submit pull requests, or open issues if you find bugs or have suggestions for improvements.
+Refer here: https://colab.research.google.com/drive/1Pp_Huz4eRboeokvhy-j5_0meK7V4QkeC?usp=sharing
 
 ## **License**
 
